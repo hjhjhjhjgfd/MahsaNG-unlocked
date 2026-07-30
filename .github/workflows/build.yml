@@ -1,0 +1,49 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v7
+      with:
+        submodules: 'recursive'
+        fetch-depth: '0'
+
+    - name: Setup Java
+      uses: actions/setup-java@v5
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Build APK (debug-signed)
+      run: |
+        cd ${{ github.workspace }}/V2rayNG
+        echo "sdk.dir=${ANDROID_HOME}" > local.properties
+        echo "android.sdkmanagerPath=$ANDROID_HOME/cmdline-tools/latest/bin" >> local.properties
+        chmod 755 gradlew
+        ./gradlew assembleProdDebug
+
+    - name: Upload arm64-v8a APK
+      uses: actions/upload-artifact@v7
+      if: ${{ success() }}
+      with:
+        name: arm64-v8a
+        path: ${{ github.workspace }}/V2rayNG/app/build/outputs/apk/prod/debug/*arm64-v8a*.apk
+
+    - name: Upload armeabi-v7a APK
+      uses: actions/upload-artifact@v7
+      if: ${{ success() }}
+      with:
+        name: armeabi-v7a
+        path: ${{ github.workspace }}/V2rayNG/app/build/outputs/apk/prod/debug/*armeabi-v7a*.apk
