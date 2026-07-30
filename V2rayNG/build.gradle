@@ -4,3 +4,16 @@ plugins {
     id("com.android.library") version "8.4.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.23" apply false
 }
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        // JCenter has been shut down (Feb 2022) so legacy artifacts like
+        // rxpermissions 0.9.4 no longer resolve from there. Aliyun's mirror
+        // still serves them and is fast + reliable.
+        maven { url = uri("https://maven.aliyun.com/repository/jcenter") }
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://jitpack.io") }
+    }
+}
