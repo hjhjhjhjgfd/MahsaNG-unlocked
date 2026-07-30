@@ -7,18 +7,18 @@
     <color name="colorUnselected">#999999</color>
     <color name="colorWhite">#CFD8DC</color>
     <color name="colorBlack">#212121</color>
-    <color name="colorConfigType">#f97910</color>
+    <color name="colorConfigType">#FF6B35</color>
 
 
-    <!--    <color name="colorPrimary">#008577</color>-->
-    <!--    <color name="colorPrimaryDark">#00574B</color>-->
-    <color name="colorPrimary">#2B2B2B</color>
-    <color name="colorPrimaryDark">#161616</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorBg">#FFFFFF</color>
-    <color name="colorText">#000000</color>
+    <!--  Material 2027 — Cosmic purple-black palette (light values retained
+          for accessibility; the night theme replaces them at runtime).  -->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#F4F4F8</color>
+    <color name="colorAccent">#FF6B35</color>
+    <color name="colorBg">#FAFAFD</color>
+    <color name="colorText">#1B1530</color>
 
-    <color name="color_fab_active">#f97910</color>
+    <color name="color_fab_active">#FF6B35</color>
     <color name="color_fab_inactive">#9C9C9C</color>
     <color name="color_secondary">#727272</color>
 
@@ -61,5 +61,13 @@
     <color name="color_ads_text">#FF0000</color>
     <color name="color_sponsor_fix">#363636</color>
     <color name="color_footer_toolbox">#575757</color>
+
+    <!--  Cosmic palette tokens — used by both day and night styles  -->
+    <color name="glass_cosmic_bg">#0A0813</color>
+    <color name="glass_cosmic_surface">#140F22</color>
+    <color name="glass_cosmic_surface_high">#1B1530</color>
+    <color name="glass_cosmic_lavender">#B388FF</color>
+    <color name="glass_cosmic_text">#E6E1F0</color>
+    <color name="glass_cosmic_outline">#3D3656</color>
 
 </resources>
